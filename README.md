@@ -1,5 +1,10 @@
 # 컨사이스 바이블 랜딩 페이지
 
+> **📖 이 문서의 목적**  
+> **대상**: GitHub 방문자, 일반 사용자, 협업자  
+> **목적**: 프로젝트 공개 소개 및 사용법  
+> **내용**: 프로젝트 개요, 설치법, 기술 스택, 페이지 구성
+
 간추린 성경 "컨사이스 바이블" 책을 소개하는 정적 랜딩 페이지입니다.
 
 ## 🌐 배포 정보
@@ -14,43 +19,6 @@
 - **Tailwind CSS v4** - 스타일링
 - **Lucide Svelte** - 아이콘
 - **Vite** - 개발 서버 및 빌드 도구
-
-## 🏗 프로젝트 구조
-
-```
-src/
-├── app.css                 # 글로벌 스타일 (Tailwind CSS)
-├── app.html               # HTML 템플릿
-├── lib/
-│   └── components/        # Svelte 컴포넌트들
-└── routes/
-    ├── +layout.svelte     # 전역 레이아웃
-    └── +page.svelte       # 메인 페이지
-```
-
-## 🚀 개발 환경 설정
-
-### 필수 요구사항
-- Node.js 18 이상
-- npm 또는 yarn
-
-### 설치 및 실행
-
-```bash
-# 의존성 설치
-npm install
-
-# 개발 서버 실행
-npm run dev
-
-# 빌드
-npm run build
-
-# 프로덕션 미리보기
-npm run preview
-```
-
-개발 서버는 http://localhost:5173/ 에서 실행됩니다.
 
 ## 📱 페이지 구성
 

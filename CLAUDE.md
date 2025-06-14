@@ -1,83 +1,47 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+> **🤖 이 문서의 목적**  
+> **대상**: Claude Code (AI 개발 도구)  
+> **목적**: AI가 효율적으로 개발할 수 있는 기술 가이드  
+> **내용**: 개발 명령어, 기술 설정, 파일 참조, 개발 주의사항
 
-## Project Context
+이 파일은 Claude Code(claude.ai/code)가 이 저장소에서 작업할 때 필요한 가이드를 제공합니다.
 
-This is a Korean-language static landing page for "컨사이스 바이블" (Concise Bible) book. The project uses SvelteKit with strict architectural requirements defined in `shrimp-rules.md` and detailed specifications in `doc/PRD.md`.
+## 프로젝트 개요
 
-## Development Commands
+SvelteKit을 사용한 "컨사이스 바이블" 책 소개 한국어 정적 랜딩 페이지입니다.
+
+**📋 중요**: 완전한 개발 가이드라인, 아키텍처 요구사항, 디자인 표준은 `shrimp-rules.md`를 참조하세요.
+
+## 개발 명령어
 
 ```bash
-# Development server
-npm run dev                 # Starts dev server at http://localhost:5173
-
-# Production build
-npm run build              # Builds static site using adapter-static
-
-# Preview production build
-npm run preview           # Preview built site locally
-
-# Project sync
-npm run prepare           # Runs svelte-kit sync
+npm run dev                 # 개발 서버 실행 (http://localhost:5173)
+npm run build              # 프로덕션 빌드 (정적 사이트)
+npm run preview           # 프로덕션 빌드 미리보기
+npm run prepare           # SvelteKit 동기화
 ```
 
-## Architecture Overview
+## 기술 설정
 
-### Technology Constraints
-- **SvelteKit**: Static site generation with adapter-static
-- **Tailwind CSS v4**: Uses `@tailwindcss/postcss` plugin (NOT standard tailwindcss)
-- **Lucide Svelte**: Only permitted icon library
-- **Korean optimization**: Pretendard font stack configured
+### Tailwind CSS v4 설정
+- **PostCSS**: `@tailwindcss/postcss` 플러그인 사용 (일반 tailwindcss 아님)
+- **CSS Import**: `src/app.css`에 `@import "tailwindcss"` (v4 문법)
+- **설정**: `tailwind.config.js`에 Pretendard 한국어 폰트 스택 구성
 
-### Critical Configuration Files
-- `postcss.config.js`: Uses `@tailwindcss/postcss` (Tailwind v4 requirement)
-- `tailwind.config.js`: Korean font stack with Pretendard
-- `svelte.config.js`: Static adapter for Vercel deployment
-- `src/app.css`: Single `@import "tailwindcss"` statement (Tailwind v4 syntax)
+### SvelteKit 정적 배포
+- **어댑터**: `svelte.config.js`에 `@sveltejs/adapter-static` 설정
+- **배포 대상**: Vercel을 통해 https://concisebible.serving-hands.org 배포
 
-### Component Architecture
-The landing page follows a strict 6-component structure (defined in shrimp-rules.md):
+## 주요 파일 참조
 
-1. **Header.svelte** - Logo/navigation
-2. **Hero.svelte** - Book cover, title "간추린 성경 컨사이스 바이블", subtitle "THE CONCISE BIBLE"  
-3. **BookIntro.svelte** - Must include exact text: "모든 사람에게 주는 하나님의 말씀과 좋은 소식은 우리 삶에 깊은 평안과 지혜를 전해줍니다"
-4. **Features.svelte** - Book features with Lucide icons
-5. **CTA.svelte** - "컨사이스 바이블 보기" and "컨사이스 바이블 응원" buttons
-6. **Footer.svelte** - Copyright and contact info
+- **`shrimp-rules.md`**: 완전한 개발 가이드라인 및 아키텍처
+- **`doc/PRD.md`**: 상세한 프로젝트 요구사항 및 명세  
+- **`data/tasks.json`**: 컴포넌트 구현 태스크 (Shrimp MCP에서 관리)
 
-All components must be placed in `src/lib/components/` and composed in `src/routes/+page.svelte`.
+## 개발 주의사항
 
-### Design System
-- **Responsive breakpoints**: Mobile (320-767px), Tablet (768-1023px), Desktop (1024px+)
-- **Colors**: Natural blue tones (primary), warm white/soft gray (secondary), gold/orange (accent)
-- **Typography**: Korean-optimized font stack with Pretendard
-- **Touch targets**: Minimum 44px for accessibility
-- **Layout**: Vertical on mobile, horizontal on desktop
-
-### Task Management
-The project uses Shrimp task manager with tasks defined in `data/tasks.json`. Each component has specific implementation requirements and verification criteria.
-
-## Development Guidelines
-
-### Styling Rules
-- **PROHIBIT** inline styles - use Tailwind classes only
-- **PROHIBIT** other CSS frameworks or icon libraries besides specified stack
-- **REQUIRE** proper responsive implementation across all breakpoints
-
-### Content Requirements  
-- Korean language content must remain exactly as specified
-- Specific required text strings cannot be modified
-- Book title and subtitle are fixed: "간추린 성경 컨사이스 바이블" / "THE CONCISE BIBLE"
-
-### File Organization
-- All components in `src/lib/components/`
-- Static assets in `src/static/` (currently unused)
-- Global styles only in `src/app.css`
-- Follow exact directory structure from `shrimp-rules.md`
-
-## Deployment Target
-
-- **Platform**: Vercel with static adapter
-- **Domain**: https://concisebible.serving-hands.org
-- **Build output**: Static files optimized for Korean audience
+- `shrimp-rules.md`의 엄격한 컴포넌트 구조와 한국어 콘텐츠 요구사항 준수
+- Tailwind CSS와 Lucide Svelte만 사용 (다른 라이브러리 금지)
+- 모바일/태블릿/데스크톱 반응형 디자인 유지
+- 태스크 관리는 Shrimp MCP에서 처리 - 진행 상황 추적 중복 금지
