@@ -1,0 +1,256 @@
+{
+  "tasks": [
+    {
+      "id": "f3c5ace6-33d3-4781-bd81-f4819ae9e186",
+      "name": "SvelteKit 프로젝트 초기화 및 기본 설정",
+      "description": "SvelteKit 프로젝트를 생성하고 필수 의존성(Tailwind CSS, Lucide Svelte, adapter-static)을 설치합니다. PRD와 shrimp-rules에 명시된 프로젝트 구조를 생성합니다.",
+      "notes": "TypeScript는 사용하지 않음. ESLint와 Prettier는 활성화. 한국어 폰트 설정 포함",
+      "status": "pending",
+      "dependencies": [],
+      "createdAt": "2025-06-14T00:15:56.472Z",
+      "updatedAt": "2025-06-14T00:15:56.472Z",
+      "relatedFiles": [
+        {
+          "path": "package.json",
+          "type": "CREATE",
+          "description": "프로젝트 의존성 관리"
+        },
+        {
+          "path": "svelte.config.js",
+          "type": "CREATE",
+          "description": "SvelteKit 설정"
+        },
+        {
+          "path": "tailwind.config.js",
+          "type": "CREATE",
+          "description": "Tailwind CSS 설정"
+        },
+        {
+          "path": "src/app.css",
+          "type": "CREATE",
+          "description": "글로벌 스타일"
+        }
+      ],
+      "implementationGuide": "1. npm create svelte@latest로 프로젝트 생성 (Skeleton project 선택)\n2. Tailwind CSS 설치 및 설정: npm install -D tailwindcss postcss autoprefixer\n3. Lucide Svelte 설치: npm install lucide-svelte\n4. Static adapter 설치: npm install -D @sveltejs/adapter-static\n5. 필수 디렉토리 구조 생성: src/lib/components/, src/static/\n6. svelte.config.js에서 adapter-static 설정\n7. tailwind.config.js 생성 및 content 경로 설정\n8. app.css에 Tailwind 디렉티브 추가",
+      "verificationCriteria": "1. SvelteKit 프로젝트가 정상 생성됨\n2. 모든 필수 의존성이 설치됨\n3. PRD 명시 디렉토리 구조가 생성됨\n4. npm run dev로 개발 서버가 정상 실행됨\n5. Tailwind CSS가 정상 작동함",
+      "analysisResult": "SvelteKit 기반 컨사이스 바이블 랜딩 페이지를 구축합니다. 반응형 정적 사이트로 개발하여 Vercel에 배포하며, 한국어 콘텐츠와 지정된 디자인 요구사항을 정확히 구현합니다."
+    },
+    {
+      "id": "bfa77ba1-57c4-4333-aa34-2ae75228adf9",
+      "name": "Header 컴포넌트 개발",
+      "description": "Header.svelte 컴포넌트를 생성하여 로고 또는 타이틀을 표시하고 필요시 간단한 네비게이션을 포함합니다.",
+      "notes": "인라인 스타일 금지. Tailwind 클래스만 사용",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "f3c5ace6-33d3-4781-bd81-f4819ae9e186"
+        }
+      ],
+      "createdAt": "2025-06-14T00:15:56.472Z",
+      "updatedAt": "2025-06-14T00:15:56.472Z",
+      "relatedFiles": [
+        {
+          "path": "src/lib/components/Header.svelte",
+          "type": "CREATE",
+          "description": "헤더 컴포넌트"
+        }
+      ],
+      "implementationGuide": "1. src/lib/components/Header.svelte 파일 생성\n2. 컴포넌트 구조:\n   - 로고/타이틀 영역 (좌측 정렬)\n   - 선택적 네비게이션 메뉴 (우측 정렬)\n3. Tailwind 클래스로 스타일링:\n   - 배경: 투명 또는 흰색\n   - 패딩: px-4 md:px-8 py-4\n   - flex 레이아웃 사용\n4. 반응형 디자인:\n   - 모바일: 로고만 표시\n   - 태블릿/데스크톱: 네비게이션 포함",
+      "verificationCriteria": "1. Header.svelte 파일이 올바른 위치에 생성됨\n2. 컴포넌트가 export 가능한 형태로 작성됨\n3. 반응형 디자인이 적용됨\n4. Tailwind 클래스만 사용됨",
+      "analysisResult": "SvelteKit 기반 컨사이스 바이블 랜딩 페이지를 구축합니다. 반응형 정적 사이트로 개발하여 Vercel에 배포하며, 한국어 콘텐츠와 지정된 디자인 요구사항을 정확히 구현합니다."
+    },
+    {
+      "id": "de08cd96-6772-410d-972e-1ed58f0d91a3",
+      "name": "Hero 섹션 컴포넌트 개발",
+      "description": "Hero.svelte 컴포넌트를 생성하여 책 표지 이미지, 제목, 부제목, 메인 CTA 버튼을 표시합니다.",
+      "notes": "한국어 텍스트는 정확히 유지. 이미지는 추후 src/static에 추가",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "f3c5ace6-33d3-4781-bd81-f4819ae9e186"
+        }
+      ],
+      "createdAt": "2025-06-14T00:15:56.472Z",
+      "updatedAt": "2025-06-14T00:15:56.472Z",
+      "relatedFiles": [
+        {
+          "path": "src/lib/components/Hero.svelte",
+          "type": "CREATE",
+          "description": "히어로 섹션 컴포넌트"
+        }
+      ],
+      "implementationGuide": "1. src/lib/components/Hero.svelte 파일 생성\n2. 컴포넌트 구조:\n   - 책 표지 이미지 (loading='lazy' 적용)\n   - 메인 제목: '간추린 성경 컨사이스 바이블'\n   - 부제목: 'THE CONCISE BIBLE'\n   - CTA 버튼 (골드/오렌지 색상)\n3. 레이아웃:\n   - 모바일: 세로 배치 (이미지 위, 텍스트 아래)\n   - 데스크톱: 가로 배치 (이미지 좌측, 텍스트 우측)\n4. 스타일링:\n   - 자연스러운 블루 톤 배경\n   - 이미지에 그림자 효과\n   - 버튼 최소 높이 44px",
+      "verificationCriteria": "1. Hero.svelte 파일이 생성됨\n2. 한국어 텍스트가 정확히 표시됨\n3. 반응형 레이아웃이 작동함\n4. CTA 버튼이 터치 친화적 크기임\n5. 이미지 lazy loading이 설정됨",
+      "analysisResult": "SvelteKit 기반 컨사이스 바이블 랜딩 페이지를 구축합니다. 반응형 정적 사이트로 개발하여 Vercel에 배포하며, 한국어 콘텐츠와 지정된 디자인 요구사항을 정확히 구현합니다."
+    },
+    {
+      "id": "4aec73ca-a506-4840-bc7e-81389592fd75",
+      "name": "BookIntro 컴포넌트 개발",
+      "description": "BookIntro.svelte 컴포넌트를 생성하여 책의 핵심 가치와 목적을 설명합니다.",
+      "notes": "한국어 텍스트 수정 절대 금지",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "f3c5ace6-33d3-4781-bd81-f4819ae9e186"
+        }
+      ],
+      "createdAt": "2025-06-14T00:15:56.472Z",
+      "updatedAt": "2025-06-14T00:15:56.472Z",
+      "relatedFiles": [
+        {
+          "path": "src/lib/components/BookIntro.svelte",
+          "type": "CREATE",
+          "description": "책 소개 컴포넌트"
+        }
+      ],
+      "implementationGuide": "1. src/lib/components/BookIntro.svelte 파일 생성\n2. 필수 포함 텍스트:\n   '모든 사람에게 주는 하나님의 말씀과 좋은 소식은 우리 삶에 깊은 평안과 지혜를 전해줍니다'\n3. 섹션 구성:\n   - 제목: '책 소개' 또는 유사\n   - 핵심 메시지 (위 텍스트)\n   - 추가 설명 문단\n4. 스타일링:\n   - 중앙 정렬 텍스트\n   - 충분한 패딩과 여백\n   - 읽기 쉬운 폰트 크기",
+      "verificationCriteria": "1. BookIntro.svelte 파일이 생성됨\n2. 필수 한국어 텍스트가 정확히 포함됨\n3. 가독성 좋은 레이아웃\n4. 모든 디바이스에서 텍스트가 읽기 쉬움",
+      "analysisResult": "SvelteKit 기반 컨사이스 바이블 랜딩 페이지를 구축합니다. 반응형 정적 사이트로 개발하여 Vercel에 배포하며, 한국어 콘텐츠와 지정된 디자인 요구사항을 정확히 구현합니다."
+    },
+    {
+      "id": "2852f860-0b9f-4374-ab59-ea04231b4b2e",
+      "name": "Features 섹션 컴포넌트 개발",
+      "description": "Features.svelte 컴포넌트를 생성하여 책의 주요 특징들을 시각적으로 표시합니다.",
+      "notes": "Lucide Svelte 아이콘만 사용. 다른 아이콘 라이브러리 금지",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "f3c5ace6-33d3-4781-bd81-f4819ae9e186"
+        }
+      ],
+      "createdAt": "2025-06-14T00:15:56.472Z",
+      "updatedAt": "2025-06-14T00:15:56.472Z",
+      "relatedFiles": [
+        {
+          "path": "src/lib/components/Features.svelte",
+          "type": "CREATE",
+          "description": "특징 섹션 컴포넌트"
+        }
+      ],
+      "implementationGuide": "1. src/lib/components/Features.svelte 파일 생성\n2. 특징 목록 구성 (3-4개):\n   - 각 특징에 Lucide 아이콘 사용\n   - 제목과 설명 포함\n3. 레이아웃:\n   - 모바일: 세로 나열\n   - 태블릿: 2열 그리드\n   - 데스크톱: 3-4열 그리드\n4. 아이콘 import:\n   import { BookOpen, Heart, Users } from 'lucide-svelte'",
+      "verificationCriteria": "1. Features.svelte 파일이 생성됨\n2. Lucide 아이콘이 정상 표시됨\n3. 반응형 그리드가 작동함\n4. 시각적으로 균형잡힌 레이아웃",
+      "analysisResult": "SvelteKit 기반 컨사이스 바이블 랜딩 페이지를 구축합니다. 반응형 정적 사이트로 개발하여 Vercel에 배포하며, 한국어 콘텐츠와 지정된 디자인 요구사항을 정확히 구현합니다."
+    },
+    {
+      "id": "f15a100e-9925-4e11-8c17-6621b404de74",
+      "name": "CTA 컴포넌트 개발",
+      "description": "CTA.svelte 컴포넌트를 생성하여 '컨사이스 바이블 보기'와 '컨사이스 바이블 응원' 버튼을 구현합니다.",
+      "notes": "버튼 텍스트 정확히 유지. 클릭 이벤트는 추후 구현",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "f3c5ace6-33d3-4781-bd81-f4819ae9e186"
+        }
+      ],
+      "createdAt": "2025-06-14T00:15:56.472Z",
+      "updatedAt": "2025-06-14T00:15:56.472Z",
+      "relatedFiles": [
+        {
+          "path": "src/lib/components/CTA.svelte",
+          "type": "CREATE",
+          "description": "CTA 컴포넌트"
+        }
+      ],
+      "implementationGuide": "1. src/lib/components/CTA.svelte 파일 생성\n2. 두 개의 버튼 구현:\n   - '컨사이스 바이블 보기' (주 버튼)\n   - '컨사이스 바이블 응원' (보조 버튼)\n3. 버튼 스타일:\n   - 주 버튼: 골드/오렌지 배경\n   - 보조 버튼: 윤곽선 스타일\n   - 최소 높이 44px\n   - 호버 효과 포함\n4. 레이아웃:\n   - 모바일: 세로 배치\n   - 데스크톱: 가로 배치",
+      "verificationCriteria": "1. CTA.svelte 파일이 생성됨\n2. 두 버튼이 정확한 텍스트로 표시됨\n3. 터치 친화적 크기\n4. 반응형 레이아웃 작동",
+      "analysisResult": "SvelteKit 기반 컨사이스 바이블 랜딩 페이지를 구축합니다. 반응형 정적 사이트로 개발하여 Vercel에 배포하며, 한국어 콘텐츠와 지정된 디자인 요구사항을 정확히 구현합니다."
+    },
+    {
+      "id": "7bed4762-510d-4c3c-a0ed-1d42302addf7",
+      "name": "Footer 컴포넌트 개발",
+      "description": "Footer.svelte 컴포넌트를 생성하여 저작권 정보와 연락처를 표시합니다.",
+      "notes": "PRD의 연락처 정보 참고",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "f3c5ace6-33d3-4781-bd81-f4819ae9e186"
+        }
+      ],
+      "createdAt": "2025-06-14T00:15:56.472Z",
+      "updatedAt": "2025-06-14T00:15:56.472Z",
+      "relatedFiles": [
+        {
+          "path": "src/lib/components/Footer.svelte",
+          "type": "CREATE",
+          "description": "푸터 컴포넌트"
+        }
+      ],
+      "implementationGuide": "1. src/lib/components/Footer.svelte 파일 생성\n2. 포함 내용:\n   - 저작권 정보 (© 2024)\n   - 브랜드: 밭간\n   - 선택적 연락처\n3. 스타일링:\n   - 소프트 그레이 배경\n   - 중앙 정렬\n   - 적절한 패딩",
+      "verificationCriteria": "1. Footer.svelte 파일이 생성됨\n2. 저작권 정보가 표시됨\n3. 깔끔한 디자인",
+      "analysisResult": "SvelteKit 기반 컨사이스 바이블 랜딩 페이지를 구축합니다. 반응형 정적 사이트로 개발하여 Vercel에 배포하며, 한국어 콘텐츠와 지정된 디자인 요구사항을 정확히 구현합니다."
+    },
+    {
+      "id": "011e494a-f6dc-4a02-a979-cd82811d3ffa",
+      "name": "메인 페이지 조합 및 반응형 테스트",
+      "description": "+page.svelte에서 모든 컴포넌트를 조합하고 반응형 디자인을 검증합니다.",
+      "notes": "컴포넌트 순서는 PRD 명시대로 유지",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "bfa77ba1-57c4-4333-aa34-2ae75228adf9"
+        },
+        {
+          "taskId": "de08cd96-6772-410d-972e-1ed58f0d91a3"
+        },
+        {
+          "taskId": "4aec73ca-a506-4840-bc7e-81389592fd75"
+        },
+        {
+          "taskId": "2852f860-0b9f-4374-ab59-ea04231b4b2e"
+        },
+        {
+          "taskId": "f15a100e-9925-4e11-8c17-6621b404de74"
+        },
+        {
+          "taskId": "7bed4762-510d-4c3c-a0ed-1d42302addf7"
+        }
+      ],
+      "createdAt": "2025-06-14T00:15:56.472Z",
+      "updatedAt": "2025-06-14T00:15:56.472Z",
+      "relatedFiles": [
+        {
+          "path": "src/routes/+page.svelte",
+          "type": "TO_MODIFY",
+          "description": "메인 페이지"
+        },
+        {
+          "path": "src/app.html",
+          "type": "TO_MODIFY",
+          "description": "HTML 템플릿"
+        }
+      ],
+      "implementationGuide": "1. src/routes/+page.svelte 수정\n2. 모든 컴포넌트 import:\n   import Header from '$lib/components/Header.svelte'\n   등...\n3. 컴포넌트 배치 순서:\n   <Header />\n   <Hero />\n   <BookIntro />\n   <Features />\n   <CTA />\n   <Footer />\n4. 반응형 테스트:\n   - 320px (모바일 최소)\n   - 768px (태블릿)\n   - 1024px (데스크톱)\n5. 한국어 폰트 렌더링 확인",
+      "verificationCriteria": "1. 모든 컴포넌트가 순서대로 표시됨\n2. 반응형 디자인이 모든 브레이크포인트에서 작동\n3. 한국어 텍스트가 올바르게 표시됨\n4. 전체 페이지가 통일된 디자인",
+      "analysisResult": "SvelteKit 기반 컨사이스 바이블 랜딩 페이지를 구축합니다. 반응형 정적 사이트로 개발하여 Vercel에 배포하며, 한국어 콘텐츠와 지정된 디자인 요구사항을 정확히 구현합니다."
+    },
+    {
+      "id": "3998d382-dd18-40aa-9365-f17baee8d4ca",
+      "name": "성능 최적화 및 Vercel 배포 준비",
+      "description": "성능을 최적화하고 Vercel 배포를 위한 설정을 완료합니다.",
+      "notes": "SEO 최적화는 하지 않음 (PRD 명시)",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "011e494a-f6dc-4a02-a979-cd82811d3ffa"
+        }
+      ],
+      "createdAt": "2025-06-14T00:15:56.472Z",
+      "updatedAt": "2025-06-14T00:15:56.472Z",
+      "relatedFiles": [
+        {
+          "path": ".gitignore",
+          "type": "TO_MODIFY",
+          "description": "Git 제외 파일"
+        },
+        {
+          "path": "vercel.json",
+          "type": "CREATE",
+          "description": "Vercel 설정 (선택)"
+        }
+      ],
+      "implementationGuide": "1. 성능 최적화:\n   - 이미지 최적화 (WebP 포맷 고려)\n   - Tailwind CSS purge 설정 확인\n   - 빌드 최적화 설정\n2. 정적 사이트 빌드:\n   - npm run build\n   - 빌드 결과 확인\n3. Vercel 설정:\n   - .gitignore 파일 확인\n   - vercel.json 생성 (필요시)\n4. 로딩 속도 테스트:\n   - 3초 이내 목표\n   - Lighthouse 점수 확인\n5. 브라우저 호환성 테스트",
+      "verificationCriteria": "1. npm run build가 성공적으로 완료됨\n2. 정적 파일이 올바르게 생성됨\n3. 로딩 속도 3초 이내\n4. 주요 브라우저에서 정상 작동\n5. Vercel 배포 준비 완료",
+      "analysisResult": "SvelteKit 기반 컨사이스 바이블 랜딩 페이지를 구축합니다. 반응형 정적 사이트로 개발하여 Vercel에 배포하며, 한국어 콘텐츠와 지정된 디자인 요구사항을 정확히 구현합니다."
+    }
+  ]
+}
