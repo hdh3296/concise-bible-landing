@@ -26,7 +26,13 @@
       "Bash(curl:*)",
       "Bash(git push:*)",
       "mcp__shrimp-task-manager__get_task_detail",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(open http://localhost:5173/)",
+      "Bash(npm run build:*)",
+      "Bash(npm run preview:*)",
+      "Bash(pkill:*)",
+      "Bash(vercel:*)",
+      "mcp__shrimp-task-manager__query_task"
     ]
   },
   "enableAllProjectMcpServers": true,
